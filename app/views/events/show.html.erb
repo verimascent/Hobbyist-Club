@@ -1,10 +1,23 @@
-<h1><%= @event.name %></h1>
-<p><%= @event.description %></p>
-<p><%= @event.time %></p>
+<table>
+  <tbody>
+    <tr>
+      <td><%= @event.name %></td>
+      <td><%= @event.description %></td>
+      <td><%= @event.time %></td>
+      <% if policy(@event).show? %>
+        <td><%= link_to 'Show', event_path(@event) %></td>
+      <% end %>
+      <% if policy(@event).edit? %>
+        <td><%= link_to 'Edit', edit_event_path(@event) %></td>
+      <% end %>
+      <% if policy(@event).destroy? %>
+        <td><%= link_to 'Destroy', event_path(@event), data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
 
-<ul>
-  <li><%= link_to "Edit", edit_event_path(@event) %></li>
-  <li><%= link_to "Delete", event_path(@event), method: :delete, data: { confirm: "Are you sure?" } %></li>
-  <li><%= link_to "New", new_event_path %></li>
-
-</ul>
+<br>
+<% if policy(Event).create? %>
+  <%= link_to 'New Event', :controller => 'events', :action => 'new' %>
+<% end %>

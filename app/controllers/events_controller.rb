@@ -1,26 +1,26 @@
 class EventsController < ApplicationController
-
+  before_action :set_event, only: [:show, :update, :edit, :destroy]
   # GET /events or /events.json
   def index
-    @events = Event.all
+    @events = policy_scope(Event)
     @events = @events.sort_by { |event| event.time }
   end
 
   # GET /events/1 or /events/1.json
   def show
-    @event = Event.find(params[:id])
   end
 
   # GET /events/new
   def new
     @event = Event.new
+    authorize @event
   end
 
   # POST /events or /events.json
   def create
     @event = Event.new(event_params)
     @event.user = current_user
-
+    authorize @event
     if @event.save
       redirect_to root_path
     else
@@ -54,6 +54,12 @@ class EventsController < ApplicationController
   end
 
   private
+
+    # Use callbacks to share common setup or constraints between actions.
+    def set_event
+      @event = Event.find(params[:id])
+      authorize @event
+    end
 
     # Only allow a list of trusted parameters through.
     def event_params
