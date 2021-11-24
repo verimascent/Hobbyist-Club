@@ -4,6 +4,7 @@ class EventsController < ApplicationController
   def index
     @events = policy_scope(Event)
     @events = @events.sort_by { |event| event.time }
+    @formatted_time = "%a, %b %d @ %I:%M %p"
   end
 
   # GET /events/1 or /events/1.json
