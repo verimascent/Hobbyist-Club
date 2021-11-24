@@ -22,6 +22,11 @@
   <%= f.error_notification %>
 
   <div class="form-inputs flex-col">
+    <%= f.input :username,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "username" }%>
+
     <%= f.input :email,
                 required: true,
                 autofocus: true,
