@@ -1,12 +1,12 @@
 <nav class="flex px-8 h-20 bg-gray-100 justify-between">
   <!-- left side -->
-  <div class="w-48 flex items-center">
+  <div class="w-100 flex items-center">
     <%= image_tag('Logo.png') %>
   </div>
 
   <!-- right side -->
   <div class="flex items-center space-x-3">
-    <a class="block p-3">Sign Up</a>
-    <a class="block p-3">Login</a>
+      <a class="block p-3"><%= link_to "Sign up", new_user_registration_path, class: "nav-link" %></a>
+      <a class="block p-3"><%= link_to "Login", new_user_session_path, class: "nav-link" %></a>
   </div>
 </nav>
