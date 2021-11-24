@@ -1,0 +1,10 @@
+<h1><%= @event.name %></h1>
+<p><%= @event.description %></p>
+<p><%= @event.time %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_event_path(@event) %></li>
+  <li><%= link_to "Delete", event_path(@event), method: :delete, data: { confirm: "Are you sure?" } %></li>
+  <li><%= link_to "New", new_event_path %></li>
+
+</ul>
