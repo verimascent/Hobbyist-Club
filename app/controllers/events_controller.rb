@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :update, :edit, :destroy]
+  skip_before_action :authenticate_user!, only: :index
+
   # GET /events or /events.json
   def index
     @events = policy_scope(Event)
