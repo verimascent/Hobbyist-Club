@@ -1,0 +1,22 @@
+<%= form_for @event, url: { controller: 'events', action: 'create' } do |f| %>
+
+  <!-- form_for @object, html: { multipart: true }, do |f| -->
+  <!-- form_for @object, html: { class: "classname" }, do |f| -->
+
+  <%= f.label :name, "Name" %>
+  <%= f.text_field :name %>
+
+  <%= f.label :description, "Description" %>
+  <%= f.text_area :description %>
+
+  <%= f.label :limit, "Limit" %>
+  <%= f.number_field :limit %>
+
+  <%= f.label :time, "Time" %>
+  <%= f.time_field :time %>
+
+  <!-- <%= f.label :user_id, "User Id" %>
+  <%= f.number_field :user_id %> -->
+
+  <%= f.submit "Create" %>
+<% end %>
