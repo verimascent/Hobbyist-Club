@@ -25,7 +25,8 @@
     </main>
     <div class="flex-col sm:justify-center  bg-yellow-700 mt-20 ">
           <div class='flex  justify-between m-auto'>
-            <a class='m-5 text-black hover:text-white hover:no-underline'>HOME</a>
+            <%# <a href class='m-5 text-black hover:text-white hover:no-underline'>HOME</a> %>
+            <%= link_to "HOME", root_path, class: 'm-5 text-black hover:text-white hover:no-underline' %>
             <a class='m-5 text-black hover:text-white hover:no-underline'>ABOUT US</a>
             <a class='m-5 text-black hover:text-white hover:no-underline'>CONTACT</a>
           </div>
