@@ -1,59 +1,39 @@
  <style>
-  body {
-    background-color: #E9C891 !important;
-  }
-
-
+    body {
+      background-color: #E9C891 !important;
+    }
  </style>
-<div class='container flex justify-around gap-20'>
-  <div class='left-container  w-1/2 text-center bg-yellow-100 rounded-lg'>
-    <div class='px-3 pt-20 '>
-      <a href="" class="px-5 py-2 w-8 h-8 border border-2 border-gray-400 rounded-full text-center text-gray-600 hover:text-yellow-400 hover:no-underline  text-yellow-700 bg-white"><i class="fab fa-facebook-f"></i>
-      Sign Up with FaceBook
-      </a>
-    </div>
-    <div class='px-3 pt-8 opacity-100'>
-      <a href="" class="px-5 py-2 w-8 h-8 border border-2 border-gray-400 rounded-full text-center text-gray-600 hover:text-yellow-400 hover:no-underline  text-yellow-700 bg-white"><i class="fab fa-twitter"></i>
-      Sign Up with Twitter
-      </a>
-    </div>
-    <div class='px-3 pt-8 pb-20 opacity-100'>
-      <a href="" class="px-5 py-2 w-8 h-8 border border-2 border-gray-400 rounded-full text-center text-gray-600 hover:text-yellow-400 hover:no-underline  text-yellow-700 bg-white"><i class="fab fa-youtube"></i>
-      Sign Up with YouTube
-      </a>
-    </div>
-  </div>
 
-  <div class='right-container w-1/2'>
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+<div class='w-full max-w-xs mx-auto'>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
     <div class='form flex-col'>
-      <h1 class='text-center mb-10 text-yellow-700 text-2xl'>Sign up</h1>
-    <div class="form-inputs flex-col text-yellow-700">
-      <%= f.input :email,
-                  required: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "email" },
-                  label_html: { class: 'text-yellow-700' } %>
-      <%= f.input :password,
-                  required: true,
-                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" },
-                  label_html: { class: 'text-yellow-700' } %>
-      <%= f.input :password_confirmation,
-                  required: true,
-                  input_html: { autocomplete: "new-password" },
-                  label_html: { class: 'text-yellow-700' } %>
-  <div class="form-actions bg-yellow-700 w-full text-center rounded">
-    <%= f.button :submit, "Sign up",
-    class: 'bg-yellow-700 text-white text-lg ' %>
-  </div>
+      <h1 class='text-center my-10 text-yellow-700 text-4xl'>Sign up</h1>
+      <div class="form-inputs  text-yellow-700 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" },
+                    label_html: { class: 'text-yellow-700 block text-sm font-bold mb-2' },
+                    class: 'bg-yellow-700 text-red text-lg ' %>
+        <%= f.input :password,
+                    required: true,
+                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    input_html: { autocomplete: "new-password" },
+                    label_html: { class: 'text-yellow-700 block text-sm font-bold mb-2' } %>
+        <%= f.input :password_confirmation,
+                    required: true,
+                    input_html: { autocomplete: "new-password" },
+                    label_html: { class: 'text-yellow-700 block text-sm font-bold mb-2' } %>
+      </div>
+      <div class="form-actions bg-yellow-700 w-full text-center rounded">
+        <%= f.button :submit, "Sign up",
+        class: 'bg-yellow-700 text-white text-lg py-3 ' %>
+      </div>
 
-  </div>
-
-  </div>
-<% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
 
 
