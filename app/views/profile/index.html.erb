@@ -1,42 +1,46 @@
-<div class='px-14'>
-  <h1 class='font-bold text-3xl text-gray-800 my-8'>Events you host</h1>
-
-  <div class='max-w-screen-lg grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+<div class='px-14 divide-y divide-gray-300'>
+  <div class='py-14'>
+    <div class='font-bold text-3xl text-gray-800 mb-6'><h1>Events You Host</h1></div> 
     <!--Card event you host-->
-    <% @user_created_events = @user.events %>
-    <% @user_created_events.each do |event| %>
-      <div class="max-w-sm rounded overflow-hidden shadow-lg">
-        <img class="w-full h-72 md:h-56 object-cover" src="https://source.unsplash.com/random" alt="randomIMG">
-        <div class="px-2 py-2">
-          <div class="font-bold text-base text-yellow-700 mb-2"><%= link_to event.date, event %></div>
-            <p class="text-gray-800 text-base">
-            <%= link_to event.name, event %>
-            </p>
+    <div class='max-w-screen-lg grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+      <% @user_created_events = @user.events %>
+      <% @user_created_events.each do |event| %>
+          <div class="max-w-sm rounded overflow-hidden shadow-lg">
+            <img class="w-full h-72 md:h-56 object-cover" src="https://source.unsplash.com/random" alt="randomIMG">
+            <div class="px-2 py-2">
+              <div class="font-bold text-base text-yellow-700 mb-2"><%= link_to event.date, event %></div>
+                <p class="text-gray-800 text-base">
+                <%= event.name %>
+                </p>
+              </div>
+            <div class="flex p-2 inline justify-between">
+              <span class="inline-block text-sm font-semibold text-gray-700 mr-2 mb-2"><%= event.users.length %> Going</span>        </div>
           </div>
-        <div class="flex p-2 inline justify-between">
-          <span class="inline-block text-sm font-semibold text-gray-700 mr-2 mb-2"><%= event.users.length %> Going</span>        </div>
-      </div>
-    <% end %>
-    <%= link_to "Create a new event", new_event_path %>
+      <% end %>
+      <%= link_to "Create a new event", new_event_path %>
+
+    </div>
   </div>
 
-<h1 class='font-bold text-3xl text-gray-800 mb-8 mt-16'>Events you're attending</h1>
-<div class='max-w-screen-lg grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
-  <!--Card event you attend-->
-  <% @user_reservations = @user.reservations %>
-  <% @user_reservations.each do |reservation| %>
-  <div class="max-w-sm rounded overflow-hidden shadow-lg">
-    <img class="w-full h-72 md:h-56 object-cover" src="https://source.unsplash.com/random" alt="randomIMG">
-    <div class="px-2 py-2">
-      <div class="font-bold text-base text-yellow-700 mb-2"><%= link_to reservation.event.date, reservation.event %></div>
-        <p class="text-gray-800 text-base">
-        <%= link_to reservation.event.name, reservation.event %>
-        </p>
-      </div>
-      <div class="flex p-2 inline justify-between">
-        <span class="inline-block text-sm font-semibold text-gray-700 mr-2 mb-2"><%= reservation.event.users.length %> Going</span>
-      </div>
+  <div class='py-14'>
+    <h1 class='font-bold text-3xl text-gray-800 mb-6'>Events You're Attending</h1>
+    <!--Card event you attend-->
+    <div class='max-w-screen-lg grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+      <% @user_reservations = @user.reservations %>
+      <% @user_reservations.each do |reservation| %>
+          <div class="max-w-sm rounded overflow-hidden shadow-lg">
+            <img class="w-full h-72 md:h-56 object-cover" src="https://source.unsplash.com/random" alt="randomIMG">
+            <div class="px-2 py-2">
+              <div class="font-bold text-base text-yellow-700 mb-2"><%= link_to reservation.event.date, reservation.event %></div>
+                <p class="text-gray-800 text-base">
+                <%= reservation.event.name %>
+                </p>
+              </div>
+            <div class="flex p-2 inline justify-between">
+              <span class="inline-block text-sm font-semibold text-gray-700 mr-2 mb-2"><%= reservation.event.users.length %> Going</span>
+            </div>
+          </div>
+      <% end %>
     </div>
-  <% end %>
   </div>
 </div>

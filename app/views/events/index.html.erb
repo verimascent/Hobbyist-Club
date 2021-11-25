@@ -1,6 +1,6 @@
-<div class="flex px-10 py-10 bg-gray-100 justify-between">
+<div class="flex px-10 py-10 justify-between shadow">
   <!-- left side -->
-  <div class="flex items-left h-20 w-full">
+  <div class="flex justify-center items-left h-24 w-full">
     <%= image_tag('Logo.png') %>
   </div>
 
@@ -11,7 +11,7 @@
       <a class="block p-3"><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %></a>
     <% else %>
       <a class="block p-3"><%= link_to "Sign up", new_user_registration_path, class: "nav-link" %></a>
-      <a class="block p-3"><%= link_to "Login", new_user_session_path, class: "nav-link" %></a>
+      <a class="block p-3"><%= link_to "Login", new_user_seyssion_path, class: "nav-link" %></a>
     <% end %>
   </div>
 </div>
