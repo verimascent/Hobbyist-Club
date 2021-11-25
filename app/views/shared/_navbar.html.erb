@@ -9,4 +9,14 @@
       <a class="block p-3"><%= link_to "Sign up", new_user_registration_path, class: "nav-link" %></a>
       <a class="block p-3"><%= link_to "Login", new_user_session_path, class: "nav-link" %></a>
   </div>
+  <div>
+    <%= form_tag events_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a event"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </nav>

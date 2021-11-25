@@ -84,5 +84,18 @@
 
   </div>
 
-  <% end %>
+ <section class="datetime section">
+    <fieldset class="datepicker">
+      <%= form.label :date, 'Date' %>
+      <%= form.date_field :date, id: 'date' %>
+    </fieldset>
+    <fieldset class="select is-full / timeslot">
+      <%= form.label :time, 'Available timeslots' %>
+      <%= form.time_field :time %>
+    </fieldset>
+  </section>
+
+  <%= form.submit %>
+<% end %>
+
 </div>
