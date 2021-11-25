@@ -4,6 +4,7 @@ class ProfileController < ApplicationController
   def index
     @events = policy_scope(Event)
     @events = @events.sort_by { |event| [event.date, event.start_time] }
+    @user = current_user
   end
 
   # GET /events/1 or /events/1.json
