@@ -13,6 +13,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <%= render 'shared/flashes' %>
     <%= render 'shared/navbar' unless current_page?(root_path) %>
+    <%= favicon_link_tag asset_path 'vector.svg' %>
   </head>
 
 
