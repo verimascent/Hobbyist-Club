@@ -1,26 +1,29 @@
 <style>
- .rounded-lg {box-shadow: 3px 3px 3px 	#D3D3D3; border: none}
+ .rounded-lg {box-shadow: 3px 3px 3px 	#D3D3D3; border: none;}
 </style>
 
-<div class='flex-col mx-auto'>
+<div class='flex-col text-center'>
   <%= form_with model: event do |form| %>
-  <div class='flex-col'>
+  <div class='flex-col gap-5'>
     <div>
       <div>
-        <%= form.label :name, "Event Title" %>
+        <%= form.label :name, "Event Title",
+        class: ' '
+         %>
       </div>
       <div>
         <%= form.text_field :name,
-        class: ' rounded-lg ' %>
+        class: ' rounded-lg w-5/12' %>
       </div>
     </div>
     <div>
       <div>
-        <%= form.label :description, "Description" %>
+        <%= form.label :description, "Description",
+        class: ' ' %>
       </div>
       <div>
         <%= form.text_area :description,
-        class: ' rounded-lg ' %>
+        class: ' rounded-lg w-5/12' %>
       </div>
     </div>
     <div>
@@ -29,56 +32,64 @@
       </div>
       <div>
         <%= form.number_field :limit,
-        class: ' rounded-lg ' %>
+        class: ' rounded-lg w-5/12' %>
       </div>
+    </div>
+    <div class='flex justify-center p-6  '>
+      <div>
+        <div>
+          <%= form.label :date, "Date",
+          class: '' %>
+        </div>
+        <div>
+          <%= form.date_field :date,
+          class: ' rounded-lg m-3.5 ' %>
+        </div>
+      </div>
+      <div>
+        <div>
+          <%= form.label :start_time, "Start Time",
+          class: ' ' %>
+        </div>
+        <div>
+          <%= form.time_field :start_time,
+          class: ' rounded-lg m-3.5' %>
+        </div>
+      </div>
+      <div>
+        <div>
+          <%= form.label :end_time, "End Time",
+          class: ' ' %>
+        </div>
+        <div>
+          <%= form.time_field :end_time,
+          class: ' rounded-lg m-3.5 ' %>
+        </div>
+    </div>
     </div>
     <div>
       <div>
-        <%= form.label :date, "Date" %>
-      </div>
-      <div>
-        <%= form.date_field :date,
-        class: ' rounded-lg ' %>
-      </div>
-    </div>
-    <div>
-      <div>
-        <%= form.label :start_time, "Start Time" %>
-      </div>
-      <div>
-        <%= form.time_field :start_time,
-        class: ' rounded-lg ' %>
-      </div>
-    </div>
-    <div>
-      <div>
-        <%= form.label :end_time, "End Time" %>
-      </div>
-      <div>
-        <%= form.time_field :end_time,
-        class: ' rounded-lg ' %>
-      </div>
-    </div>
-    <div>
-      <div>
-        <%= form.label :address, "Address" %>
+        <%= form.label :address, "Address",
+        class: ' ' %>
       </div>
       <div>
         <%= form.text_field :address,
-        class: ' rounded-lg ' %>
+        class: ' rounded-lg w-5/12 ' %>
       </div>
     </div>
     <div>
       <div>
-        <%= form.label :img_url, "Featured Photo" %>
+        <%= form.label :img_url, "Featured Photo",
+        class: ' ' %>
       </div>
       <div>
         <%= form.text_field :img_url,
-        class: ' rounded-lg ' %>
+        class: ' rounded-lg w-5/12 ' %>
       </div>
     </div>
     <div>
-      <%= form.submit %>
+      <%= form.submit 'Post',
+      class: 'rounded-lg w-5/12 text-white bg-yellow-700'%>
     </div>
 
 
