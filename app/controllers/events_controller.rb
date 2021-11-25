@@ -5,9 +5,16 @@ class EventsController < ApplicationController
   # GET /events or /events.json
   def index
     @events = policy_scope(Event)
+    @formatted_time = "%a, %b %d @ %I:%M %p"
+
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR description ILIKE :query"
+      @events = Event.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @events = Event.all
+    end
+
     @events = @events.sort_by { |event| [event.date, event.start_time] }
-    # @dates = @events.map {|event| event.date.strftime("%Y-%m-%d")}
-    # @times = @events.map {|event| event.start_time.strftime("at %I:%M%p")}
   end
 
   # GET /events/1 or /events/1.json
