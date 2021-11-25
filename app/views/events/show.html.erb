@@ -12,7 +12,9 @@
         </div>
         <div class="flex flex-col justify-top">
           <div>
-            <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">Join</button>
+            <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+              <a onclick="this='Joined'" ><%= link_to 'Join', event_reservations_path(@event), method: :post %></a>
+            </button>
           </div>
           <div>
             <p>Address</p>
