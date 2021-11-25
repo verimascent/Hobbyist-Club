@@ -11,24 +11,24 @@
   </div>
 </div>
 <!-- navbar ends -->
-
-<h1 class='font-bold text-3xl my-8 text-gray-800'>Upcoming Events</h1>
-
-<div class='mx-auto px-10 max-w-screen-lg grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
-    <!--Card event you host-->
-  <% @events.first(4).each do |event| %>
-      <div class="max-w-sm rounded overflow-hidden shadow-lg">
-        <img class="w-full h-38 sm:h-48 object-cover" src="https://source.unsplash.com/random" alt="randomIMG">
-        <div class="px-2 py-2">
-          <div class="font-bold text-base text-yellow-700 mb-2"><%= link_to event.date, event %></div>
-            <p class="text-gray-800 text-base">
-            <%= link_to event.name, event %>
-            </p>
+<div class='px-14'> 
+  <h1 class='font-bold text-gray-800 text-3xl my-10'>Upcoming Events</h1>
+  <!--Card event-->
+  <div class='max-w-screen-lg grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+    <% @events.first(4).each do |event| %>
+        <div class="max-w-sm rounded overflow-hidden shadow-lg">
+          <img class="w-full h-72 md:h-56 object-cover" src="https://source.unsplash.com/random" alt="randomIMG">
+          <div class="px-2 py-2">
+            <div class="font-bold text-base text-yellow-700 mb-2"><%= link_to event.date, event %></div>
+              <p class="text-gray-800 text-base">
+              <%= link_to event.name, event %>
+              </p>
+            </div>
+          <div class="flex p-2 inline justify-between">
+            <span class="inline-block text-sm font-semibold text-gray-700 mr-2 mb-2"><%= event.users.length %> Going</span>
+            <span class="inline-block text-sm font-semibold text-gray-700 mr-2 mb-2"><%= link_to "Join", event_path(event) %></span>
           </div>
-        <div class="flex p-2 inline justify-between">
-          <span class="inline-block text-sm font-semibold text-gray-700 mr-2 mb-2"><%= event.users.length %> Going</span>
-          <span class="inline-block text-sm font-semibold text-gray-700 mr-2 mb-2"><%= link_to "Join", event_path(event) %></span>
         </div>
-      </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
