@@ -7,9 +7,10 @@ class Event < ApplicationRecord
 
   validates :name, :description, :date, :start_time, :end_time, :user_id, :address, :img_url, presence: true
 
-  pg_search_scope :search_by_name_and_description,
-    against: [ :name, :description ],
-    using: {
-      tsearch: { prefix: true }
-    }
+  pg_search_scope :search_by_name_and_description, against: [ :name, :description ], using: {
+    tsearch: { prefix: true }
+  }
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end
