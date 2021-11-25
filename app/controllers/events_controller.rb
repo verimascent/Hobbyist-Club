@@ -5,8 +5,9 @@ class EventsController < ApplicationController
   # GET /events or /events.json
   def index
     @events = policy_scope(Event)
-    @events = @events.sort_by { |event| event.time }
-    @formatted_time = "%a, %b %d @ %I:%M %p"
+    @events = @events.sort_by { |event| [event.date, event.start_time] }
+    # @dates = @events.map {|event| event.date.strftime("%Y-%m-%d")}
+    # @times = @events.map {|event| event.start_time.strftime("at %I:%M%p")}
   end
 
   # GET /events/1 or /events/1.json
@@ -33,14 +34,11 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
-    @event = Event.find(params[:id])
   end
 
 
   # PATCH/PUT /events/1 or /events/1.json
   def update
-    @event = Event.find(params[:id])
-
     if @event.update(event_params)
       redirect_to @event
     else
@@ -50,7 +48,6 @@ class EventsController < ApplicationController
 
   # DELETE /events/1 or /events/1.json
   def destroy
-    @event = Event.find(params[:id])
     @event.destroy
 
     redirect_to root_path
@@ -66,7 +63,7 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:name, :description, :limit, :time)
+      params.require(:event).permit(:name, :description, :limit, :date, :start_time, :end_time, :address, :img_url)
     end
 
     def invalid_event
