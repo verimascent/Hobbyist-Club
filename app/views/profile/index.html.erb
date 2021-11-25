@@ -1,4 +1,4 @@
-<h1 class='font-bold text-3xl my-8'>Events you host</h1>
+<h1 class='font-bold text-3xl text-gray-800 my-8'>Events you host</h1>
 
 <div class='max-w-screen-lg grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
     <!--Card event you host-->
@@ -6,8 +6,8 @@
       <div class="max-w-sm rounded overflow-hidden shadow-lg">
         <img class="w-full h-38 sm:h-48 object-cover" src="https://source.unsplash.com/random" alt="randomIMG">
         <div class="px-2 py-2">
-          <div class="font-bold text-base mb-2">Mon, Nov 28 @ 10:00 AM</div>
-            <p class="text-gray-700 text-base">
+          <div class="font-bold text-base text-yellow-700 mb-2"><%= link_to event.date, event %></div>
+            <p class="text-gray-800 text-base">
             <%= event.name %>
             </p>
           </div>
@@ -17,17 +17,18 @@
         </div>
       </div>
   <% end %>
+
 </div>
 
-<h1 class='font-bold text-3xl mb-8 mt-16'>Events you're attending</h1>
+<h1 class='font-bold text-3xl text-gray-800 mb-8 mt-16'>Events you're attending</h1>
 <div class='max-w-screen-lg grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
     <!--Card event you attend-->
   <% @events.each do |event| %>  
       <div class="max-w-sm rounded overflow-hidden shadow-lg">
         <img class="w-full h-38 sm:h-48 object-cover" src="https://source.unsplash.com/random" alt="randomIMG">
         <div class="px-2 py-2">
-          <div class="font-bold text-base mb-2">Mon, Nov 28 @ 10:00 AM</div>
-            <p class="text-gray-700 text-base">
+          <div class="font-bold text-base text-yellow-700 mb-2"><%= link_to event.date, event %></div>
+            <p class="text-gray-800 text-base">
             <%= event.name %>
             </p>
           </div>
