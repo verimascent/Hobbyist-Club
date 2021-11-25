@@ -1,15 +1,13 @@
 <style>
- .rounded-lg {box-shadow: 3px 3px 3px 	#D3D3D3; border: none;}
+ .rounded-lg {box-shadow: 3px 3px 3px 	#D3D3D3; border: none; margin: 1rem auto}
 </style>
 
 <div class='flex-col text-center'>
   <%= form_with model: event do |form| %>
   <div class='flex-col gap-5'>
     <div>
-      <div>
-        <%= form.label :name, "Event Title",
-        class: ' '
-         %>
+      <div class='relative w-1/2 ml-20 pl-6'>
+        <%= form.label :name, "Event Title"%>
       </div>
       <div>
         <%= form.text_field :name,
@@ -17,9 +15,8 @@
       </div>
     </div>
     <div>
-      <div>
-        <%= form.label :description, "Description",
-        class: ' ' %>
+      <div class='relative w-1/2 ml-20 pl-7 '>
+        <%= form.label :description, "Description" %>
       </div>
       <div>
         <%= form.text_area :description,
@@ -27,7 +24,7 @@
       </div>
     </div>
     <div>
-      <div>
+      <div class='relative w-1/2 ml-14 pl-7 '>
         <%= form.label :limit, "Limit" %>
       </div>
       <div>
@@ -35,32 +32,29 @@
         class: ' rounded-lg w-5/12' %>
       </div>
     </div>
-    <div class='flex justify-center p-6  '>
-      <div>
-        <div>
-          <%= form.label :date, "Date",
-          class: '' %>
+    <div class='flex justify-center relative p-6  mx-5'>
+      <div class='relative'>
+        <div class='absolute mr-5 mb-2'>
+          <%= form.label :date, "Date" %>
         </div>
         <div>
           <%= form.date_field :date,
           class: ' rounded-lg m-3.5 ' %>
         </div>
       </div>
-      <div>
-        <div>
-          <%= form.label :start_time, "Start Time",
-          class: ' ' %>
+      <div class='relative mx-7'>
+        <div class='absolute mr-5 mb-2'>
+          <%= form.label :start_time, "Start Time" %>
         </div>
         <div>
           <%= form.time_field :start_time,
           class: ' rounded-lg m-3.5' %>
         </div>
       </div>
-      <div>
-        <div>
+      <div class='relative'>
+        <div class='absolute mr-5 mb-2'>
 
-          <%= form.label :end_time, "End Time",
-          class: ' ' %>
+          <%= form.label :end_time, "End Time" %>
         </div>
         <div>
           <%= form.time_field :end_time,
@@ -69,9 +63,8 @@
     </div>
     </div>
     <div>
-      <div>
-        <%= form.label :address, "Address",
-        class: ' ' %>
+      <div class='relative w-1/2 ml-20 pl-2'>
+        <%= form.label :address, "Address" %>
       </div>
       <div>
         <%= form.text_field :address,
@@ -79,9 +72,8 @@
       </div>
     </div>
     <div>
-      <div>
-        <%= form.label :img_url, "Featured Photo",
-        class: ' ' %>
+      <div class='relative w-1/2 ml-20 pl-12 '>
+        <%= form.label :img_url, "Featured Photo" %>
       </div>
       <div>
         <%= form.text_field :img_url,
@@ -90,7 +82,7 @@
     </div>
     <div>
       <%= form.submit 'Post',
-      class: 'rounded-lg w-5/12 text-white bg-yellow-700'%>
+      class: 'rounded-lg w-5/12 text-white bg-yellow-700 px-5 py-3 '%>
     </div>
 
 
