@@ -1,41 +1,88 @@
-<%= form_with model: event do |form| %>
+<style>
+ .rounded-lg {box-shadow: 3px 3px 3px 	#D3D3D3; border: none}
+</style>
+
+<div class='flex-col mx-auto'>
+  <%= form_with model: event do |form| %>
   <div class='flex-col'>
     <div>
-      <%= form.label :name, "Event Title" %>
-      <%= form.text_field :name %>
+      <div>
+        <%= form.label :name, "Event Title" %>
+      </div>
+      <div>
+        <%= form.text_field :name,
+        class: ' rounded-lg ' %>
+      </div>
     </div>
     <div>
-      <%= form.label :description, "Description" %>
-      <%= form.text_area :description %>
+      <div>
+        <%= form.label :description, "Description" %>
+      </div>
+      <div>
+        <%= form.text_area :description,
+        class: ' rounded-lg ' %>
+      </div>
     </div>
     <div>
-      <%= form.label :limit, "Limit" %>
-      <%= form.number_field :limit %>
+      <div>
+        <%= form.label :limit, "Limit" %>
+      </div>
+      <div>
+        <%= form.number_field :limit,
+        class: ' rounded-lg ' %>
+      </div>
     </div>
     <div>
-      <%= form.label :date, "Date" %>
-      <%= form.time_field :date %>
+      <div>
+        <%= form.label :date, "Date" %>
+      </div>
+      <div>
+        <%= form.time_field :date,
+        class: ' rounded-lg ' %>
+      </div>
     </div>
     <div>
-      <%= form.label :start_time, "Start Time" %>
-      <%= form.time_field :start_time %>
+      <div>
+        <%= form.label :start_time, "Start Time" %>
+      </div>
+      <div>
+        <%= form.time_field :start_time,
+        class: ' rounded-lg ' %>
+      </div>
     </div>
     <div>
-      <%= form.label :end_time, "End Time" %>
-      <%= form.time_field :end_time %>
+      <div>
+        <%= form.label :end_time, "End Time" %>
+      </div>
+      <div>
+        <%= form.time_field :end_time,
+        class: ' rounded-lg ' %>
+      </div>
     </div>
     <div>
-      <%= form.label :address, "Address" %>
-      <%= form.time_field :address %>
+      <div>
+        <%= form.label :address, "Address" %>
+      </div>
+      <div>
+        <%= form.time_field :address,
+        class: ' rounded-lg ' %>
+      </div>
     </div>
     <div>
-      <%= form.label :img_url, "Featured Photo" %>
-      <%= form.time_field :img_url %>
+      <div>
+        <%= form.label :img_url, "Featured Photo" %>
+      </div>
+      <div>
+        <%= form.time_field :img_url,
+        class: ' rounded-lg ' %>
+      </div>
     </div>
     <div>
       <%= form.submit %>
     </div>
 
+
   </div>
 
-<% end %>
+  <% end %>
+</div>
