@@ -4,98 +4,82 @@
 
 <div class='flex-col mx-auto'>
   <%= form_with model: event do |form| %>
-  <div class='flex-col'>
-    <div>
+    <div class='flex-col'>
       <div>
-        <%= form.label :name, "Event Title" %>
+        <div>
+          <%= form.label :name, "Event Title" %>
+        </div>
+        <div>
+          <%= form.text_field :name,
+          class: ' rounded-lg ' %>
+        </div>
       </div>
       <div>
-        <%= form.text_field :name,
-        class: ' rounded-lg ' %>
+        <div>
+          <%= form.label :description, "Description" %>
+        </div>
+        <div>
+          <%= form.text_area :description,
+          class: ' rounded-lg ' %>
+        </div>
+      </div>
+      <div>
+        <div>
+          <%= form.label :limit, "Limit" %>
+        </div>
+        <div>
+          <%= form.number_field :limit,
+          class: ' rounded-lg ' %>
+        </div>
+      </div>
+      <div>
+        <div>
+          <%= form.label :date, "Date" %>
+        </div>
+        <div>
+          <%= form.date_field :date,
+          class: ' rounded-lg ' %>
+        </div>
+      </div>
+      <div>
+        <div>
+          <%= form.label :start_time, "Start Time" %>
+        </div>
+        <div>
+          <%= form.time_field :start_time,
+          class: ' rounded-lg ' %>
+        </div>
+      </div>
+      <div>
+        <div>
+          <%= form.label :end_time, "End Time" %>
+        </div>
+        <div>
+          <%= form.time_field :end_time,
+          class: ' rounded-lg ' %>
+        </div>
+      </div>
+      <div>
+        <div>
+          <%= form.label :address, "Address" %>
+        </div>
+        <div>
+          <%= form.text_field :address,
+          class: ' rounded-lg ' %>
+        </div>
+      </div>
+      <div>
+        <div>
+          <%= form.label :img_url, "Featured Photo" %>
+        </div>
+        <div>
+          <%= form.text_field :img_url,
+          class: ' rounded-lg ' %>
+        </div>
+      </div>
+      <div>
+        <%= form.submit %>
       </div>
     </div>
-    <div>
-      <div>
-        <%= form.label :description, "Description" %>
-      </div>
-      <div>
-        <%= form.text_area :description,
-        class: ' rounded-lg ' %>
-      </div>
-    </div>
-    <div>
-      <div>
-        <%= form.label :limit, "Limit" %>
-      </div>
-      <div>
-        <%= form.number_field :limit,
-        class: ' rounded-lg ' %>
-      </div>
-    </div>
-    <div>
-      <div>
-        <%= form.label :date, "Date" %>
-      </div>
-      <div>
-        <%= form.date_field :date,
-        class: ' rounded-lg ' %>
-      </div>
-    </div>
-    <div>
-      <div>
-        <%= form.label :start_time, "Start Time" %>
-      </div>
-      <div>
-        <%= form.time_field :start_time,
-        class: ' rounded-lg ' %>
-      </div>
-    </div>
-    <div>
-      <div>
-        <%= form.label :end_time, "End Time" %>
-      </div>
-      <div>
-        <%= form.time_field :end_time,
-        class: ' rounded-lg ' %>
-      </div>
-    </div>
-    <div>
-      <div>
-        <%= form.label :address, "Address" %>
-      </div>
-      <div>
-        <%= form.text_field :address,
-        class: ' rounded-lg ' %>
-      </div>
-    </div>
-    <div>
-      <div>
-        <%= form.label :img_url, "Featured Photo" %>
-      </div>
-      <div>
-        <%= form.text_field :img_url,
-        class: ' rounded-lg ' %>
-      </div>
-    </div>
-    <div>
-      <%= form.submit %>
-    </div>
-
-
-  </div>
-
- <section class="datetime section">
-    <fieldset class="datepicker">
-      <%= form.label :date, 'Date' %>
-      <%= form.date_field :date, id: 'date' %>
-    </fieldset>
-    <fieldset class="select is-full / timeslot">
-      <%= form.label :time, 'Available timeslots' %>
-      <%= form.time_field :time %>
-    </fieldset>
-  </section>
-
-  <%= form.submit %>
-<% end %>
-
+  <% end %>
 </div>
