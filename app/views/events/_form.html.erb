@@ -1,16 +1,41 @@
 <%= form_with model: event do |form| %>
+  <div class='flex-col'>
+    <div>
+      <%= form.label :name, "Event Title" %>
+      <%= form.text_field :name %>
+    </div>
+    <div>
+      <%= form.label :description, "Description" %>
+      <%= form.text_area :description %>
+    </div>
+    <div>
+      <%= form.label :limit, "Limit" %>
+      <%= form.number_field :limit %>
+    </div>
+    <div>
+      <%= form.label :date, "Date" %>
+      <%= form.time_field :date %>
+    </div>
+    <div>
+      <%= form.label :start_time, "Start Time" %>
+      <%= form.time_field :start_time %>
+    </div>
+    <div>
+      <%= form.label :end_time, "End Time" %>
+      <%= form.time_field :end_time %>
+    </div>
+    <div>
+      <%= form.label :address, "Address" %>
+      <%= form.time_field :address %>
+    </div>
+    <div>
+      <%= form.label :img_url, "Featured Photo" %>
+      <%= form.time_field :img_url %>
+    </div>
+    <div>
+      <%= form.submit %>
+    </div>
 
-  <%= form.label :name, "Name" %>
-  <%= form.text_field :name %>
+  </div>
 
-  <%= form.label :description, "Description" %>
-  <%= form.text_area :description %>
-
-  <%= form.label :limit, "Limit" %>
-  <%= form.number_field :limit %>
-
-  <%= form.label :time, "Time" %>
-  <%= form.time_field :time %>
-
-  <%= form.submit %>
 <% end %>
