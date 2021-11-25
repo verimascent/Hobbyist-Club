@@ -6,8 +6,13 @@
 
   <!-- right side -->
   <div class="flex items-center space-x-3">
+    <% if user_signed_in? %>
+      <a class="block p-3"><%= link_to "My events", profile_path(current_user), class: "nav-link" %></a>
+      <a class="block p-3"><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %></a>
+    <% else %>
       <a class="block p-3"><%= link_to "Sign up", new_user_registration_path, class: "nav-link" %></a>
       <a class="block p-3"><%= link_to "Login", new_user_session_path, class: "nav-link" %></a>
+    <% end %>
   </div>
 </div>
 <!-- navbar ends -->
