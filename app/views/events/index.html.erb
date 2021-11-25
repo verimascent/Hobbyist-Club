@@ -1,12 +1,22 @@
-<div>
-  <%= render 'shared/navbar' %>
+<div class="flex px-10 py-10 bg-gray-100 justify-between">
+  <!-- left side -->
+  <div class="flex items-left h-20 w-full">
+    <%= image_tag('Logo.png') %>
+  </div>
+
+  <!-- right side -->
+  <div class="flex items-center space-x-3">
+      <a class="block p-3"><%= link_to "Sign up", new_user_registration_path, class: "nav-link" %></a>
+      <a class="block p-3"><%= link_to "Login", new_user_session_path, class: "nav-link" %></a>
+  </div>
 </div>
+<!-- navbar ends -->
 
 <h1 class='font-bold text-3xl my-8 text-gray-800'>Upcoming Events</h1>
 
-<div class='max-w-screen-lg grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+<div class='mx-auto px-10 max-w-screen-lg grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
     <!--Card event you host-->
-  <% @events.first(4).each do |event| %>  
+  <% @events.first(4).each do |event| %>
       <div class="max-w-sm rounded overflow-hidden shadow-lg">
         <img class="w-full h-38 sm:h-48 object-cover" src="https://source.unsplash.com/random" alt="randomIMG">
         <div class="px-2 py-2">
@@ -22,4 +32,3 @@
       </div>
   <% end %>
 </div>
-
