@@ -2,13 +2,13 @@
     <div class="h-300 mx-300">
       <div class="flex flex-row justify-between items-end">
         <div><p class="text-5xl text-yellow-800"><%= @event.name %></p></div>
-        <div class="text-yellow-800"><p><%= @event.date %></p></div>
+        <div class="text-yellow-800"><p><%= @event.date %> <%= @event.start_time&.strftime("from %I:%M %p") %> <%= @event.end_time&.strftime("to %I:%M %p") %></p></div>
       </div>
 
       <div class="flex flex-row justify-between pt-10">
         <div>
           <p><%= User.find(@event.user_id).username %></p>
-          <img class="object-cover h-3/5 w-3/5" src="https://www.jonesday.com/-/media/files/publications/2019/05/when-coding-is-criminal/when-coding-is-criminal.jpg?h=800&w=1600&la=en&hash=5522AA91198A168017C511FCBE77E201" alt="photo here">
+          <img class="object-cover h-3/5 w-3/5" src= "<%= @event.img_url %>" alt="photo here">
         </div>
         <div class="flex flex-col justify-top">
           <div>
@@ -18,9 +18,11 @@
           </div>
           <div>
             <p>Address</p>
+            <p><%= @event.address %></p>
           </div>
         </div>
       </div>
+      <div id="map" style="width: 100%; height: 600px;" data-marker="<%= @marker.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
       <div class="mx-50 my-50 px-30 py-30">
         <p><%= @event.description %></p>

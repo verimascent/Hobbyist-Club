@@ -14,11 +14,19 @@ class EventsController < ApplicationController
       @events = Event.all
     end
 
-    @events = @events.sort_by { |event| [event.date, event.start_time] }
+    @events = @events.sort_by { |date, start_time| [date, start_time] }
   end
 
   # GET /events/1 or /events/1.json
   def show
+    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
+    @event = Event.find(params[:id])
+    @marker = {
+        lat: @event.latitude,
+        lng: @event.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { event: @event }),
+        image_url: helpers.asset_url("vector.svg")
+      }
   end
 
   # GET /events/new
