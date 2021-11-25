@@ -1,72 +1,40 @@
-<div class='flex-col overflow-scroll'>
-  <h1 class='font-bold text-3xl my-6'>Events you host</h1>
-  <div class='flex justify-between gap-4 max-w-1'>
-      <!--Card 1-->
-      
-    <div class="w-1/4">
+<h1 class='font-bold text-3xl my-6'>Events you host</h1>
+
+<div class='max-w-screen-lg grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+    <!--Card event you host-->
+  <% @events.each do |event| %>  
       <div class="max-w-sm rounded overflow-hidden shadow-lg">
-        <img class="w-full h-36 sm:h-48 object-cover" src="https://source.unsplash.com/random" alt="randomIMG">
+        <img class="w-full h-38 sm:h-48 object-cover" src="https://source.unsplash.com/random" alt="randomIMG">
         <div class="px-2 py-2">
           <div class="font-bold text-base mb-2">Mon, Nov 28 @ 10:00 AM</div>
-          <p class="text-gray-700 text-base">
-            Event Title
-          </p>
-        </div>
+            <p class="text-gray-700 text-base">
+            <%= event.name %>
+            </p>
+          </div>
         <div class="flex p-2 inline justify-between">
           <span class="inline-block text-sm font-semibold text-gray-700 mr-2 mb-2">10 Going</span>
           <span class="inline-block text-sm font-semibold text-gray-700 mr-2 mb-2">Join</span>
         </div>
       </div>
-    </div>
+  <% end %>
+</div>
 
-    <div class="w-1/4">
-      <!--Card 2-->
+<h1 class='font-bold text-3xl my-6'>Events you're attending</h1>
+<div class='max-w-screen-lg grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+    <!--Card event you attend-->
+  <% @events.each do |event| %>  
       <div class="max-w-sm rounded overflow-hidden shadow-lg">
-        <img class="w-full h-36 sm:h-48 object-cover" src="https://source.unsplash.com/random" alt="randomIMG">
+        <img class="w-full h-38 sm:h-48 object-cover" src="https://source.unsplash.com/random" alt="randomIMG">
         <div class="px-2 py-2">
           <div class="font-bold text-base mb-2">Mon, Nov 28 @ 10:00 AM</div>
-          <p class="text-gray-700 text-base">
-            Event Title
-          </p>
-        </div>
-        <div class="flex p-2 inline justify-between">  
-          <span class="inline-block text-sm font-semibold text-gray-700 mr-2 mb-2">10 Going</span>
-          <span class="inline-block text-sm font-semibold text-gray-700 mr-2 mb-2">Join</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="w-1/4">
-      <!--Card 3-->
-      <div class="max-w-sm rounded overflow-hidden shadow-lg">
-        <img class="w-full h-36 sm:h-48 object-cover" src="https://source.unsplash.com/random" alt="randomIMG">
-        <div class="px-2 py-2">
-          <div class="font-bold text-base mb-2">Mon, Nov 28 @ 10:00 AM</div>
-          <p class="text-gray-700 text-base">
-            Event Title
-          </p>
-        </div>
-        <div class="flex p-2 inline justify-between">  
-          <span class="inline-block text-sm font-semibold text-gray-700 mr-2 mb-2">10 Going</span>
-          <span class="inline-block text-sm font-semibold text-gray-700 mr-2 mb-2">Join</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="w-1/4">
-      <!--Card 4-->
-      <div class="max-w-sm rounded overflow-hidden shadow-lg">
-        <img class="w-full h-36 sm:h-48 object-cover" src="https://source.unsplash.com/random" alt="randomIMG">
-        <div class="px-2 py-2">
-          <div class="font-bold text-base mb-2">Mon, Nov 28 @ 10:00 AM</div>
-          <p class="text-gray-700 text-base">
-            Event Title
-          </p>
-        </div>
+            <p class="text-gray-700 text-base">
+            <%= event.name %>
+            </p>
+          </div>
         <div class="flex p-2 inline justify-between">
           <span class="inline-block text-sm font-semibold text-gray-700 mr-2 mb-2">10 Going</span>
           <span class="inline-block text-sm font-semibold text-gray-700 mr-2 mb-2">Join</span>
         </div>
       </div>
-  </div>
+  <% end %>
 </div>
