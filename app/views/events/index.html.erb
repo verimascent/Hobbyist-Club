@@ -10,14 +10,14 @@
     </div>
 
     <div class='flex justify-between gap-4 max-w-1'>
-      <% @events.first(4).each do |event| %>
+      <% @events.first(4).each do |event, index| %>
         <div class="w-1/3">
           <div class="max-w-sm rounded overflow-hidden shadow-lg">
             <%= link_to event do %>
               <img class="max-w-1 max-h-2/3" src="https://source.unsplash.com/random" alt="randomIMG">
             <% end %>
             <div class="px-2 py-2">
-              <div class="font-bold text-xl mb-2"><%= link_to event.time.strftime(@formatted_time), event %></div>
+              <div class="font-bold text-xl mb-2"><%= link_to event.date, event %></div>
               <p class="text-gray-700 text-base">
                 <%= link_to event.name, event %>
               </p>

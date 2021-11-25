@@ -3,8 +3,5 @@ class Event < ApplicationRecord
   has_many :reservations, dependent: :destroy
   has_many :users, through: :reservations
 
-  validates :description, presence: true
-  validates :time, presence: true
-  validates :name, presence: true
-  validates :user_id, presence: true
+  validates :description, :date, :name, :start_time, :end_time, :user_id, :address, presence: true
 end

@@ -3,7 +3,7 @@ class ProfileController < ApplicationController
 
   def index
     @events = policy_scope(Event)
-    @events = @events.sort_by { |event| event.time }
+    @events = @events.sort_by { |event| [event.date, event.start_time] }
   end
 
   # GET /events/1 or /events/1.json
@@ -30,14 +30,11 @@ class ProfileController < ApplicationController
 
   # GET /events/1/edit
   def edit
-    @event = Event.find(params[:id])
   end
 
 
   # PATCH/PUT /events/1 or /events/1.json
   def update
-    @event = Event.find(params[:id])
-
     if @event.update(event_params)
       redirect_to @event
     else
@@ -59,4 +56,9 @@ class ProfileController < ApplicationController
     @event = Event.find(params[:id])
     authorize @event
   end
+
+  def event_params
+    params.require(:event).permit(:name, :description, :limit, :date, :start_time, :end_time, :address, :img_url)
+  end
+
 end
