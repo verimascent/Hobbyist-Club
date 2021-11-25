@@ -2,7 +2,7 @@
     <div class="h-300 mx-300">
       <div class="flex flex-row justify-between items-end">
         <div><p class="text-5xl text-yellow-800"><%= @event.name %></p></div>
-        <div class="text-yellow-800"><p><%= @event.date %> <%= @event.start_time.strftime("from %I:%M %p") %> <%= @event.end_time.strftime("to %I:%M %p") %></p></div>
+        <div class="text-yellow-800"><p><%= @event.date %> <%= @event.start_time&.strftime("from %I:%M %p") %> <%= @event.end_time&.strftime("to %I:%M %p") %></p></div>
       </div>
 
       <div class="flex flex-row justify-between pt-10">
