@@ -5,26 +5,10 @@
   .left-container {background-color: #E9C891 !important;
   opacity: 0.6}
  </style>
-<div class='container flex justify-around gap-20'>
-  <div class='left-container w-1/2'>
-    <div class='px-5 pt-20 '>
-      <a href="" class="px-5 py-2 w-8 h-8 border border-2 border-gray-400 rounded-full text-center text-gray-600 hover:text-yellow-400 hover:no-underline  text-yellow-700 bg-white"><i class="fab fa-facebook-f"></i>
-      Login with FaceBook
-      </a>
-    </div>
-    <div class='px-5 pt-5 opacity-100'>
-      <a href="" class="px-5 py-2 w-8 h-8 border border-2 border-gray-400 rounded-full text-center text-gray-600 hover:text-yellow-400 hover:no-underline  text-yellow-700 bg-white"><i class="fab fa-twitter"></i>
-      Login with Twitter
-      </a>
-    </div>
-    <div class='px-5 pt-5 pb-20 opacity-100'>
-      <a href="" class="px-5 py-2 w-8 h-8 border border-2 border-gray-400 rounded-full text-center text-gray-600 hover:text-yellow-400 hover:no-underline  text-yellow-700 bg-white"><i class="fab fa-youtube"></i>
-      Login with YouTube
-      </a>
-    </div>
-  </div>
+<div class='w-full max-w-xs mx-auto'>
+
   <div class='flex-col '>
-    <h2 class='text-yellow-700 text-center text-xl'>Log in</h2>
+    <h1 class='text-yellow-700 text-center my-8 text-4xl py-3'>Log in</h1>
     <div class='text-yellow-700'>
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-inputs">
