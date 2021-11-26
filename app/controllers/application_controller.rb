@@ -9,4 +9,14 @@ class ApplicationController < ActionController::Base
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
+
+  def after_sign_out_path_for(resource_or_scope)
+    puts("-----------")
+    puts(resource_or_scope)
+    if current_user
+      request.referrer
+    else
+      root_path
+    end
+  end
 end

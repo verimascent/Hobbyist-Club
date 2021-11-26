@@ -8,15 +8,15 @@
   <div class="flex items-center space-x-3">
     <% if user_signed_in? %>
       <a class="block p-3"><%= link_to "My events", profile_path(current_user), class: "nav-link" %></a>
-      <a class="block p-3"><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %></a>
+      <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link block p-3" %>
     <% else %>
       <a class="block p-3"><%= link_to "Sign up", new_user_registration_path, class: "nav-link" %></a>
-      <a class="block p-3"><%= link_to "Login", new_user_seyssion_path, class: "nav-link" %></a>
+      <a class="block p-3"><%= link_to "Login", new_user_session_path, class: "nav-link" %></a>
     <% end %>
   </div>
 </div>
 <!-- navbar ends -->
-<div class='px-14'> 
+<div class='px-14'>
   <h1 class='font-bold text-gray-800 text-3xl my-10'>Upcoming Events</h1>
   <!--Card event-->
   <div class='max-w-screen-lg grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>

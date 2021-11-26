@@ -2,6 +2,9 @@
 // present in this directory. You're encouraged to place your actual application logic in
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
+// Adding below for Devise to be able to trigger DELETE request with a form in the page
+= require jquery
+= require jquery_ujs
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
