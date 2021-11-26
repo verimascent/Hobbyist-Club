@@ -3,7 +3,6 @@
     box-shadow: 3px 3px 3px #D3D3D3; border: none; margin: 1rem auto
   }
 </style>
-
 <div class="flex-col p-8">
   <div class="flex justify-between items-center mr-14">
     <div class="details justify-between px-10 my-10 items-center">
@@ -13,36 +12,13 @@
       <%= @event.date %> <%= @event.start_time&.strftime("from %I:%M %p") %> <%= @event.end_time&.strftime("to %I:%M %p") %>
     </div>
   </div>
-
-  <div class="flex px-12 mt-8 gap-5">
-    <div class='w-1/2'>
-      <p><%= @event.users.length %> going</p>
-      <img class="object-cover rounded-md" src= "<%= @event.img_url %>" alt="photo here">
-    </div>
-    <div class='w-1/2'>
-      <div class='mt-8 right-container grid justify-items-end h-full gap-10'>
-        <div class='mt-10 button absolute top-60'>
-              <% if current_user.events.include?(@event) %>
-                <div class='edit-delete relative'>
-                  <% if policy(@event).edit? %>
-                    <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded">
-                      <a onclick="this='Joined'" >
-                        <%= link_to 'Edit', edit_event_path(@event) %>
-                      </a>
-                    </button>
-                  <% end %>
-                  <% if policy(@event).destroy? %>
-                    <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded">
-                      <a onclick="this='Joined'" >
-                        <%= link_to 'Delete', event_path(@event), method: :delete, data: { confirm: 'Are you sure?' } %>
-                      </a>
-                    </button>
-                  <% end %>
-                </div>
-              <% elsif @event.users.include?(current_user) %>
-                <%= "You are going" %>
-              <% else %>
-
+  <div class="flex items-center pl-10 space-x-20">
+    <div class="mx-4 font-bold bg-white shadow rounded-full text-center pt-4 h-16 w-16"><p><%= @event.users.length %> going</p></div>
+    <div>
+      <div class='button'>
+          <% if current_user.events.include?(@event) %>
+            <div class='edit-delete relative'>
+              <% if policy(@event).edit? %>
                 <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded">
                   <a onclick="this='Joined'" >
                     <%= link_to 'Edit', edit_event_path(@event) %>
@@ -56,7 +32,6 @@
                   </a>
                 </button>
               <% end %>
-
             </div>
           <% elsif @event.users.include?(current_user) %>
             <%= "You are going" %>
@@ -70,7 +45,6 @@
       </div>
     </div>
   </div>
-
   <div class="flex px-12 mt-8 gap-5">
     <div class='w-1/2'>
       <img class="object-cover rounded-md" src= "<%= @event.img_url %>" alt="photo here">
@@ -81,14 +55,11 @@
           <p class='font-bold text-end'>Address:</p>
           <p><%= @event.address %></p>
         </div>
-
-        <div id="map" style="height: 300px; width: 300px;" data-marker="<%= @marker.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-
+         <div id="map" style="height: 300px; width: 300px;" data-marker="<%= @marker.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>
     </div>
   </div>
-
   <div class="px-12 mt-10">
     <h1 class='font-bold'>Details:</h1>
     <p><%= @event.description %></p>
