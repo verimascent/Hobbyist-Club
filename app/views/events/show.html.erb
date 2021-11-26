@@ -5,9 +5,10 @@
 </style>
 
 <div class="flex-col p-8">
-  <div class="details flex justify-between px-10 my-10 items-center">
-    <p class="text-3xl text-yellow-800"><%= @event.name.upcase %>
-    </p>
+  <div class="flex justify-between items-center mr-14">
+    <div class="details justify-between px-10 my-10 items-center">
+      <p class="text-3xl text-yellow-800"><%= @event.name.upcase %></p>
+    </div>
     <div class="text-2xl text-yellow-800">
       <%= @event.date %> <%= @event.start_time&.strftime("from %I:%M %p") %> <%= @event.end_time&.strftime("to %I:%M %p") %>
     </div>
@@ -41,18 +42,48 @@
               <% elsif @event.users.include?(current_user) %>
                 <%= "You are going" %>
               <% else %>
+
                 <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded">
                   <a onclick="this='Joined'" >
-                    <%= link_to 'Join', event_reservations_path(@event), method: :post %>
+                    <%= link_to 'Edit', edit_event_path(@event) %>
                   </a>
                 </button>
               <% end %>
-        </div>
-        <div class='relative'>
+              <% if policy(@event).destroy? %>
+                <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded">
+                  <a onclick="this='Joined'" >
+                    <%= link_to 'Delete', event_path(@event), method: :delete, data: { confirm: 'Are you sure?' } %>
+                  </a>
+                </button>
+              <% end %>
+
+            </div>
+          <% elsif @event.users.include?(current_user) %>
+            <%= "You are going" %>
+          <% else %>
+            <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded">
+              <a onclick="this='Joined'" >
+                <%= link_to 'Join', event_reservations_path(@event), method: :post %>
+              </a>
+            </button>
+          <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex px-12 mt-8 gap-5">
+    <div class='w-1/2'>
+      <img class="object-cover rounded-md" src= "<%= @event.img_url %>" alt="photo here">
+    </div>
+    <div class='w-1/2'>
+      <div class='flex-col grid justify-items-end h-full'>
+        <div>
           <p class='font-bold text-end'>Address:</p>
           <p><%= @event.address %></p>
         </div>
+
         <div id="map" style="height: 300px; width: 300px;" data-marker="<%= @marker.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+
         </div>
       </div>
     </div>
