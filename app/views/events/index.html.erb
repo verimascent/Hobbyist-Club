@@ -1,32 +1,35 @@
-<div class="flex px-10 py-10 justify-between shadow">
+<div class="flex justify-between items-center px-12 py-12 shadow">
   <!-- left side -->
-  <div class="flex justify-center items-left h-24 w-full">
+  <div class="flex h-20 w-auto">
     <%= image_tag('Logo.png') %>
   </div>
 
   <!-- right side -->
-  <div class="flex items-center">
-    <div><%= form_tag events_path, method: :get do %>
-      <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find an event" %>
-    </div>
-    <div><%= button_tag :submit do %>
-      <svg class="w-5 ml-1" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-      </svg>
+  <div class="flex justify-end items-center">
+    <div class="flex items-center">
+      <div><%= form_tag events_path, method: :get do %>
+        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find an event" %>
+      </div>
+      <div><%= button_tag :submit do %>
+        <svg class="w-5 ml-1" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+        <% end %>
+      </div>
       <% end %>
     </div>
-    <% end %>
-  </div>
-  <div class="flex items-center space-x-3">
-    <% if user_signed_in? %>
-      <div class="block p-3"><%= link_to "My events", profile_path(current_user), class: "nav-link" %></div>
-      <div><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link block p-3" %></div>
-    <% else %>
-      <a class="block p-3"><%= link_to "Sign up", new_user_registration_path, class: "nav-link" %></a>
-      <a class="block p-3"><%= link_to "Login", new_user_session_path, class: "nav-link" %></a>
-    <% end %>
+    <div class="flex items-center">
+      <% if user_signed_in? %>
+        <a class="block p-3"><%= link_to "My events", profile_path(current_user), class: "nav-link" %></a>
+        <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link block p-3" %>
+      <% else %>
+        <a class="block p-3"><%= link_to "Sign up", new_user_registration_path, class: "nav-link" %></a>
+        <a class="block p-3"><%= link_to "Login", new_user_session_path, class: "nav-link" %></a>
+      <% end %>
+    </div>
   </div>
 </div>
+
 <!-- navbar ends -->
 <div class='px-14'>
   <h1 class='font-bold text-gray-800 text-3xl my-10'>Upcoming Events</h1>
