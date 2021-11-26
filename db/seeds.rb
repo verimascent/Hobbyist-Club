@@ -4,7 +4,9 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+
 #   Character.create(name: 'Luke', movie: movies.first)
+Event.destroy_all
 u = User.find(1)
 
 Event.create!(user: u, name: 'Code in the Dark', description: 'The Ultimate Web Developemnt Competition 🕺 Free Flow Pizza and a Stuffed Bar!!!', limit:'20', address:'CoderBunder', date: 'Sat, 04 Dec 2021', start_time: 'Sat, 04 Dec 2021 18:00:00.000000000 UTC +00:00', end_time:'Sat, 04 Dec 2021 21:00:00.000000000 UTC +00:00', img_url:'https://media.istockphoto.com/photos/secret-base-with-hackers-working-in-night-picture-id1282678142?b=1&k=20&m=1282678142&s=170667a&w=0&h=F3uXA2wqEF6Gp0inZPsCfGRLKF4KF3NzYQKwMNqg9aI=')
