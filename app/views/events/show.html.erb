@@ -18,7 +18,7 @@
       <p><%= @event.users.length %> going</p>
       <img class="object-cover rounded-md" src= "<%= @event.img_url %>" alt="photo here">
     </div>
-    <div class='w-1/2'> 
+    <div class='w-1/2'>
       <div class='mt-8 right-container grid justify-items-end h-full gap-10'>
         <div class='mt-10 button absolute top-60'>
               <% if current_user.events.include?(@event) %>
@@ -52,7 +52,7 @@
           <p class='font-bold text-end'>Address:</p>
           <p><%= @event.address %></p>
         </div>
-        <div id="map" class='w-3/4 h-full rounded-md' data-marker="<%= @marker.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        <div id="map" style="height: 300px; width: 300px;" data-marker="<%= @marker.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>
     </div>
