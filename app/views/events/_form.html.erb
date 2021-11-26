@@ -66,10 +66,10 @@
     </div>
     <div>
       <div class='relative w-1/2 ml-20 pl-2'>
-        <%= form.label :address, "Address" %>
+        <%= form.label :address, "Address"%>
       </div>
       <div>
-        <%= form.text_field :address,
+        <%= form.text_field :address, placeholder: 'venue, street, city',
         class: ' rounded-lg w-5/12 ' %>
       </div>
     </div>
@@ -78,7 +78,7 @@
         <%= form.label :img_url, "Featured Photo" %>
       </div>
       <div>
-        <%= form.text_field :img_url,
+        <%= form.text_field :img_url, placeholder: 'image link here',
         class: ' rounded-lg w-5/12 ' %>
       </div>
     </div>
