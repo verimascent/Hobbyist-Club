@@ -1,6 +1,6 @@
 <div class='px-14 divide-y divide-gray-300'>
   <div class='py-14'>
-    <div class='font-bold text-3xl text-gray-800 mb-6'><h1>Events You Host</h1></div>
+    <div class='font-bold text-3xl text-gray-800 mb-10'><h1>Events You Host</h1></div>
     <!--Card event you host-->
     <div class='max-w-screen-lg grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
       <% @user_created_events = @user.events %>
@@ -24,7 +24,7 @@
   </div>
 
   <div class='py-14'>
-    <h1 class='font-bold text-3xl text-gray-800 mb-6'>Events You're Attending</h1>
+    <h1 class='font-bold text-3xl text-gray-800 mb-10'>Events You're Attending</h1>
     <!--Card event you attend-->
     <div class='max-w-screen-lg grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
       <% @user_reservations = @user.reservations %>
