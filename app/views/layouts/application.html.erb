@@ -12,7 +12,6 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <%= render 'shared/flashes' %>
-    <%= render 'shared/navbar' unless current_page?(root_path) %>
     <%= favicon_link_tag asset_path 'vector.svg' %>
     <%= stylesheet_pack_tag 'application' %>
   </head>
@@ -24,6 +23,7 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
+    <%= render 'shared/navbar' unless current_page?(root_path) || current_page?(events_path) %>
     <main class="">
       <%= yield %>
     </main>
