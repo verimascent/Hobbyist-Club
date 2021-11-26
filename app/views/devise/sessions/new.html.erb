@@ -24,9 +24,9 @@
           <%= f.input :remember_me, :label_html=>{:class=>'text-yellow-700'},  as: :boolean if devise_mapping.rememberable? %>
         </div>
 
-        <div class="form-actions bg-yellow-700 w-full text-center rounded">
+        <div>
           <%= f.button :submit, "Log in",
-          class: 'bg-yellow-700 text-white text-lg ' %>
+          class: 'form-actions bg-yellow-700 w-full text-center rounded text-white py-3 text-lg hover:bg-yellow-400' %>
         </div>
       <% end %>
     </div>
