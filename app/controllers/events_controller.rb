@@ -14,7 +14,7 @@ class EventsController < ApplicationController
       @events = Event.all
     end
 
-    @events = @events.sort_by { |date, start_time| [date, start_time] }
+    @events = @events.sort_by { |event| [event.date, event.start_time] }
   end
 
   # GET /events/1 or /events/1.json

@@ -3,7 +3,7 @@ class ProfileController < ApplicationController
 
   def index
     @events = policy_scope(Event)
-    @events = @events.sort_by { |date, start_time| [date, start_time] }
+    @events = @events.sort_by { |event| [event.date, event.start_time] }
     @user = current_user
   end
 
