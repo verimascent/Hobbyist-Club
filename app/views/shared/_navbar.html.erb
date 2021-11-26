@@ -19,7 +19,7 @@
       <% end %>
     </div>
 
-    <div class="flex">
+    <div class="flex items-center">
       <% if user_signed_in? %>
         <a class="block p-3"><%= link_to "My events", profile_path(current_user), class: "nav-link" %></a>
         <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link block p-3" %>
