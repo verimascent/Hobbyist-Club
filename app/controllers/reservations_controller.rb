@@ -12,11 +12,12 @@ class ReservationsController < ApplicationController
     @reservation.user = current_user
     @reservation.event = @event
 
-    if @reservation.save!
+    if @reservation.save
       redirect_to event_path(@event), notice: 'Congrats! You have joined the event.'
     else
-      render :new
+      redirect_to event_path(@event), notice: 'You have already joined.'
     end
+
   end
 
   def new
