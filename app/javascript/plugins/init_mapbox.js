@@ -12,7 +12,6 @@ const initMapbox = () => {
       style: 'mapbox://styles/mapbox/streets-v10'
     });
 
-    console.log(mapElement.dataset)
     const marker = JSON.parse(mapElement.dataset.marker);
 
     fitMapToMarker(map, marker);
